@@ -52,12 +52,6 @@
                                             <ul class="dropdown-menu">
                                                 <li>
                                                     <a class="dropdown-item"
-                                                        href="{{ route('leaves.show', $leave->id) }}">
-                                                        Detail
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="dropdown-item"
                                                         href="{{ route('leaves.edit', $leave->id) }}">
                                                         Edit
                                                     </a>
