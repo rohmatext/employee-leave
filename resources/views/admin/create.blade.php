@@ -31,55 +31,55 @@
                             @enderror
                         </div>
                     </div>
-            </div>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
-                @error('email')
-                    <div class="form-text text-danger">{{ $message }}</div>
-                @enderror
-            </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            value="{{ old('email') }}">
+                        @error('email')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
-            <div class="mb-3">
-                <label for="password" class="form-label">Password (opsional)</label>
-                <input type="password" class="form-control" id="password" name="password"
-                    value="{{ old('password') }}">
-                <div class="form-text">Kosongkan jika tidak ingin ganti password. (Default:
-                    <strong>password</strong>)
-                </div>
-                @error('password')
-                    <div class="form-text text-danger">{{ $message }}</div>
-                @enderror
-            </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password (opsional)</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            value="{{ old('password') }}">
+                        <div class="form-text">Kosongkan jika tidak ingin ganti password. (Default:
+                            <strong>password</strong>)
+                        </div>
+                        @error('password')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
-            <div class="mb-3">
-                <label for="gender" class="form-label">Jenis kelamin</label>
-                <div>
-                    @foreach (\App\Enums\GenderEnum::cases() as $gender)
-                        <input type="radio" class="btn-check" value="{{ $gender->value }}" name="gender"
-                            id="{{ $gender->value }}" autocomplete="off" @checked($gender->value === old('gender'))>
-                        <label class="btn btn-sm" for="{{ $gender->value }}">{{ $gender->label() }}</label>
-                    @endforeach
-                </div>
-                @error('gender')
-                    <div class="form-text text-danger">{{ $message }}</div>
-                @enderror
-            </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Jenis kelamin</label>
+                        <div>
+                            @foreach (\App\Enums\GenderEnum::cases() as $gender)
+                                <input type="radio" class="btn-check" value="{{ $gender->value }}" name="gender"
+                                    id="{{ $gender->value }}" autocomplete="off" @checked($gender->value === old('gender'))>
+                                <label class="btn btn-sm" for="{{ $gender->value }}">{{ $gender->label() }}</label>
+                            @endforeach
+                        </div>
+                        @error('gender')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
 
-            <div class="mb-3">
-                <label for="birth_date" class="form-label">Tanggal lahir</label>
-                <input type="date" class="form-control" id="birth_date" name="birth_date"
-                    value="{{ old('birth_date') }}">
-                @error('birth_date')
-                    <div class="form-text text-danger">{{ $message }}</div>
-                @enderror
+                    <div class="mb-3">
+                        <label for="birth_date" class="form-label">Tanggal lahir</label>
+                        <input type="date" class="form-control" id="birth_date" name="birth_date"
+                            value="{{ old('birth_date') }}">
+                        @error('birth_date')
+                            <div class="form-text text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
             </div>
-            <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-            </div>
-            </form>
         </div>
-    </div>
     </div>
 </x-app-layout>

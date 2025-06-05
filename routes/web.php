@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthenticationSessionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('/admins', AdminController::class)->parameter('admins', 'user');
 
     Route::resource('/employees', EmployeeController::class);
+
+    Route::resource('/leaves', LeaveController::class)->parameter('leaves', 'leave');
 
     Route::post('/logout', [AuthenticationSessionController::class, 'destroy'])
         ->name('logout');

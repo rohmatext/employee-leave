@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="row">
         <div class="col-sm-8 mx-auto">
-            <x-title-bar title="Kelola pegawai">
-                <a href="{{ route('employees.create') }}" class="btn btn-primary">
-                    Tambah
+            <x-title-bar title="Kelola cuti">
+                <a href="{{ route('leaves.create') }}" class="btn btn-primary">
+                    Buat
                 </a>
             </x-title-bar>
 
@@ -14,21 +14,31 @@
                 </div>
             @endif
 
+            @error('message')
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ $message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @enderror
+
             <div class="card">
                 <div class="card-body">
                     <table class="table">
                         <thead>
                             <tr>
+                                <th scope="col">Tanggal cuti</th>
                                 <th scope="col">Nama</th>
-                                <th scope="col">Email</th>
+                                <th scope="col">Alasan</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($employees as $employee)
+                            @forelse ($leaves as $leave)
                                 <tr>
-                                    <td>{{ $employee->full_name }}</td>
-                                    <td>{{ $employee->email }}</td>
+                                    <td>{{ $leave->start_date->format('d F Y') . ' - ' . $leave->end_date->format('d F Y') }}
+                                    <td>{{ $leave->employee->full_name }}</td>
+                                    </td>
+                                    <td>{{ $leave->reason }}</td>
                                     <td width="25">
                                         <div class="dropdown">
                                             <button class="btn btn-sm btn-outline-light text-dark" type="button"
@@ -42,20 +52,20 @@
                                             <ul class="dropdown-menu">
                                                 <li>
                                                     <a class="dropdown-item"
-                                                        href="{{ route('employees.show', $employee->id) }}">
+                                                        href="{{ route('leaves.show', $leave->id) }}">
                                                         Detail
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item"
-                                                        href="{{ route('employees.edit', $employee->id) }}">
+                                                        href="{{ route('leaves.edit', $leave->id) }}">
                                                         Edit
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item text-danger" data-bs-toggle="modal"
                                                         data-bs-target="#deleteModal"
-                                                        href="{{ route('employees.destroy', $employee->id) }}">
+                                                        href="{{ route('leaves.destroy', $leave->id) }}">
                                                         Hapus
                                                     </a>
                                                 </li>
@@ -65,7 +75,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="3" class="text-center">Tidak ada data</td>
+                                    <td colspan="4" class="text-center">Tidak ada data</td>
                                 </tr>
                             @endforelse
                         </tbody>

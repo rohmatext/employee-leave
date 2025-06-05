@@ -32,7 +32,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('leaves.*') ? 'active' : '' }}" href="#">
+                            <a class="nav-link {{ request()->routeIs('leaves.*') ? 'active' : '' }}"
+                                href="{{ route('leaves.index') }}">
                                 Cuti
                             </a>
                         </li>

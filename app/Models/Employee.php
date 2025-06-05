@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\GenderEnum;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Employee extends Model
@@ -38,5 +39,10 @@ class Employee extends Model
                 return $this->first_name;
             },
         );
+    }
+
+    public function leaves(): HasMany
+    {
+        return $this->hasMany(Leave::class);
     }
 }
