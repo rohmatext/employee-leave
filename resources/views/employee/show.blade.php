@@ -31,6 +31,34 @@
                     </table>
                 </div>
             </div>
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Riwayat cuti
+                    </h5>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tanggal cuti</th>
+                                <th scope="col">Alasan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($employee->leaves as $leave)
+                                <tr>
+                                    <td>{{ $leave->start_date->format('d F Y') . ' - ' . $leave->end_date->format('d F Y') }}
+                                    </td>
+                                    <td>{{ $leave->reason }}</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="2" class="text-center">Tidak ada data</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
 </x-app-layout>

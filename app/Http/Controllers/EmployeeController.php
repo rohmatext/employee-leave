@@ -51,7 +51,8 @@ class EmployeeController extends Controller
     public function show(Employee $employee)
     {
         return view('employee.show', [
-            'employee' => $employee
+            'employee' => $employee,
+            'leaves' => $employee->leaves
         ]);
     }
 
