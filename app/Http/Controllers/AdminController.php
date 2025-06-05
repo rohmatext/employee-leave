@@ -61,7 +61,11 @@ class AdminController extends Controller
      */
     public function edit(Request $request, User $user)
     {
-        Gate::authorize('update', $user);
+        if (Gate::denies('update', $user)) {
+            return to_route('admins.index')->withErrors([
+                'message' => 'You do not update owner account'
+            ]);
+        }
 
         return view('admin.edit', [
             'user' => $user
@@ -93,7 +97,11 @@ class AdminController extends Controller
      */
     public function destroy(User $user)
     {
-        Gate::authorize('delete', $user);
+        if (Gate::denies('delete', $user)) {
+            return to_route('admins.index')->withErrors([
+                'message' => 'You do not update owner account'
+            ]);
+        }
 
         $user->delete();
 

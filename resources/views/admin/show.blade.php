@@ -21,7 +21,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">Jenis kelamin</th>
-                                <td>{{ $user->gender }}</td>
+                                <td>{{ $user->gender->label() }}</td>
                             </tr>
                         </tbody>
                     </table>
