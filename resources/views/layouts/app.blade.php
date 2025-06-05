@@ -37,13 +37,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('employees.*') ? 'active' : '' }}" href="#">
+                            <a class="nav-link {{ request()->routeIs('employees.*') ? 'active' : '' }}"
+                                href="{{ route('employees.index') }}">
                                 Pegawai
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('admin.*') ? 'active' : '' }}"
-                                href="{{ route('admin.index') }}">
+                            <a class="nav-link {{ request()->routeIs('admins.*') ? 'active' : '' }}"
+                                href="{{ route('admins.index') }}">
                                 Admin
                             </a>
                         </li>

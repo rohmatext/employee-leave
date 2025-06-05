@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="row">
         <div class="col-md-8 col-lg-6 col-xl-4 mx-auto">
-            <x-title-bar title="Detail admin" :back-action="route('admin.index')" />
+            <x-title-bar title="Detail admin" :back-action="route('admins.index')" />
 
             <div class="card">
                 <div class="card-body">

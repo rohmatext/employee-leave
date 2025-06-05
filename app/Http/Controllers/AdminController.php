@@ -42,7 +42,7 @@ class AdminController extends Controller
             'password' => $request->password ?? 'password',
         ]);
 
-        return to_route('admin.index')
+        return to_route('admins.index')
             ->withMessage('Admin created successfully');
     }
 
@@ -84,7 +84,7 @@ class AdminController extends Controller
             ...$password
         ]);
 
-        return to_route('admin.index')
+        return to_route('admins.index')
             ->withMessage('Admin updated successfully');
     }
 
@@ -97,7 +97,7 @@ class AdminController extends Controller
 
         $user->delete();
 
-        return to_route('admin.index')
+        return to_route('admins.index')
             ->withMessage('Admin deleted successfully');
     }
 }

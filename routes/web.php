@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
-    Route::resource('/admin', AdminController::class)->parameter('admin', 'user');
+    Route::resource('/admins', AdminController::class)->parameter('admins', 'user');
 
     Route::post('/logout', [AuthenticationSessionController::class, 'destroy'])
         ->name('logout');

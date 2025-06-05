@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-sm-8 mx-auto">
             <x-title-bar title="Kelola admin">
-                <a href="{{ route('admin.create') }}" class="btn btn-primary">
+                <a href="{{ route('admins.create') }}" class="btn btn-primary">
                     Tambah
                 </a>
             </x-title-bar>
@@ -45,20 +45,20 @@
                                             <ul class="dropdown-menu">
                                                 <li>
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.show', $admin->id) }}">
+                                                        href="{{ route('admins.show', $admin->id) }}">
                                                         Detail
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.edit', $admin->id) }}">
+                                                        href="{{ route('admins.edit', $admin->id) }}">
                                                         Edit
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a class="dropdown-item text-danger" data-bs-toggle="modal"
                                                         data-bs-target="#deleteModal"
-                                                        href="{{ route('admin.destroy', $admin->id) }}">
+                                                        href="{{ route('admins.destroy', $admin->id) }}">
                                                         Hapus
                                                     </a>
                                                 </li>

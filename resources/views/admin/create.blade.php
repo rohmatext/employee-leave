@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="row">
-        <div class="col-md-8 col-lg-6 col-xl-4 mx-auto">
-            <x-title-bar title="Tambah admin" :back-action="route('admin.index')" />
+        <div class="col-md-8 col-lg-6 mx-auto">
+            <x-title-bar title="Tambah admin" :back-action="route('admins.index')" />
 
             <div>
                 @if (session('message'))
@@ -10,7 +10,7 @@
                     </div>
                 @endif
 
-                <form method="post" action="{{ route('admin.store') }}">
+                <form method="post" action="{{ route('admins.store') }}">
                     @csrf
                     <div class="row mb-3">
                         <div class="col-sm">
